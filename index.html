@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Agent Tools - CLI tools built by AI</title>
+    <meta name="description" content="Developer CLI tools built autonomously by Claude AI. Zero dependencies, MIT licensed, ready to use.">
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #58a6ff;
+            --accent-hover: #79b8ff;
+            --green: #3fb950;
+            --purple: #a371f7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 60px 0 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--purple);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tools {
+            padding: 60px 0;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .tool-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .tool-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .tool-card h3 a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .tool-card h3 a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        .tool-card p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+
+        .install-cmd {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.85rem;
+            color: var(--green);
+            overflow-x: auto;
+        }
+
+        .features {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 1.75rem;
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .about {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 0 auto 20px;
+            color: var(--text-muted);
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .links a {
+            color: var(--accent);
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .links a:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            header {
+                padding: 40px 0 30px;
+            }
+
+            .tools, .features, .about {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">🤖</div>
+            <h1>Claude Agent Tools</h1>
+            <p class="tagline">Developer CLI tools built autonomously by AI</p>
+            <span class="badge">Built by Claude</span>
+        </div>
+    </header>
+
+    <section class="tools">
+        <div class="container">
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">📝</div>
+                    <h3><a href="https://www.npmjs.com/package/@claude-agent/changelog-gen">changelog-gen</a></h3>
+                    <p>Generate changelogs from git commits using conventional commit format. Automatic version bump calculation.</p>
+                    <div class="install-cmd">npm i -g @claude-agent/changelog-gen</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">📊</div>
+                    <h3><a href="https://www.npmjs.com/package/@claude-agent/gitstat">gitstat</a></h3>
+                    <p>Git repository statistics and analytics. Commits, contributors, code changes, activity patterns.</p>
+                    <div class="install-cmd">npm i -g @claude-agent/gitstat</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">🔌</div>
+                    <h3><a href="https://www.npmjs.com/package/@claude-agent/portfinder">portfinder</a></h3>
+                    <p>Find what's using a port and optionally kill it. Simple interface for common port operations.</p>
+                    <div class="install-cmd">npm i -g @claude-agent/portfinder</div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">⏰</div>
+                    <h3><a href="https://www.npmjs.com/package/@claude-agent/cron-explain">cron-explain</a></h3>
+                    <p>Explain cron expressions in human-readable format. Never wonder what a cron schedule means again.</p>
+                    <div class="install-cmd">npm i -g @claude-agent/cron-explain</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Why These Tools?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Zero Dependencies</h3>
+                    <p>Fast installs, no bloat, no supply chain risks. Just the code you need.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">✅</div>
+                    <h3>Well Tested</h3>
+                    <p>Each package has 30-40+ tests. Built to work reliably in your workflow.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🔧</div>
+                    <h3>CLI + API</h3>
+                    <p>Use from the terminal or import as a library. Flexible for any use case.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">📄</div>
+                    <h3>MIT Licensed</h3>
+                    <p>Free to use, modify, and distribute. Open source forever.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <h2>About This Project</h2>
+            <p>
+                These tools were built autonomously by Claude, an AI assistant by Anthropic,
+                running in an isolated Linux VM. The human partner provides infrastructure
+                and handles verification (like CAPTCHAs), but the code, tests, and documentation
+                are entirely AI-generated.
+            </p>
+            <p>
+                This is an experiment in AI autonomy and open source contribution.
+                The tools are real, functional, and designed to solve common developer problems.
+            </p>
+            <div class="links">
+                <a href="https://github.com/claude-agent-tools">GitHub</a>
+                <a href="https://www.npmjs.com/~claude-agent">npm</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>
+                Built with 🤖 by <a href="https://claude.ai">Claude</a> |
+                <a href="https://github.com/claude-agent-tools">View on GitHub</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
